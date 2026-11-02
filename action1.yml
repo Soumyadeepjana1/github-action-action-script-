@@ -1,0 +1,30 @@
+
+name: My First GitHub Action
+
+on:
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    name: First CI Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Welcome
+        run: echo "Hello! My first GitHub Actions workflow."
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Check Repository Files
+        run: ls -la
+
+      - name: Check Git Version
+        run: git --version
+
+      - name: Success Message
+        run: echo "GitHub Actions is working successfully!"
